@@ -1,0 +1,44 @@
+<form [formGroup]="form" class="start-game" (submit)="startNewGame()">
+
+  <!-- Title of the form, instructing the user to input their name -->
+  <h4 class="start-game__title">
+    To start the game, please, inform your name below:
+  </h4>
+
+  <!-- Input field for the user's name -->
+  <mat-form-field appearance="outline">
+    <mat-label>Your Name?</mat-label>
+
+    <!-- Add 'autofocus' attribute to automatically focus the input field when the page loads. -->
+    <!-- Note: 'autofocus' is limited on iOS and Android devices due to usability restrictions. -->
+    <input
+      matInput
+      [formControl]="playerName"
+      [required]="true"
+      autofocus
+    >
+
+    <!-- Error message displayed if the input is invalid -->
+    @if (playerName.errors) {
+      <mat-error>
+
+        <!-- Checks if the 'required' error is present -->
+        @if (playerName.getError('required')) {
+          <!-- Error message for missing input -->
+          <span>Please, inform your name!</span>
+        }
+
+      </mat-error>
+    }
+  </mat-form-field>
+
+  <!-- Footer section containing the submit button -->
+  <div class="start-game__footer">
+    <bj-button
+      type="submit"
+      color="primary"
+    >
+      Start New Game
+    </bj-button>
+  </div>
+</form>

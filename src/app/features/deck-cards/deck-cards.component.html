@@ -1,0 +1,32 @@
+
+<!-- Check if the deck exists before rendering the component -->
+@if (deck) {
+
+  <div class="deck">
+
+    @if (showTotal) {
+      <!-- Display the total points of the deck if the showTotal input is true -->
+      <div
+        class="deck__total"
+        [style.font-size]="(cardWidth * 0.2) + 'px'"
+        [style.padding]="(cardWidth * 0.1) + 'px'"
+      >
+        <!-- Call the getDeckTotal method to display the total points -->
+        {{ getDeckTotal(deck) }}
+      </div>
+    }
+
+    @for (card of deck.cards; track card; let i = $index; let last = $last) {
+      <!-- Loop through each card in the deck.cards array -->
+      <div
+        class="deck__card"
+        [style.width]="last ? cardWidth + 'px' : distanceBetween + 'px'"
+        [style.transform]="spreadLayout ? getSpreadTransform(i, deck.cards.length) : ''"
+      >
+        <!-- Render a card using the bj-card component -->
+        <bj-card [card]="card" [width]="cardWidth"></bj-card>
+      </div>
+    }
+
+  </div>
+}

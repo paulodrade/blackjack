@@ -1,0 +1,16 @@
+// Host element styles for the game result component.
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+
+  @media screen and (max-width: 568px) {
+    padding: 20px; // Reduces padding for smaller screen sizes to improve responsiveness.
+  }
+}
+
+// Block: Title within the game result block.
+.title {
+  text-align: center;
+}

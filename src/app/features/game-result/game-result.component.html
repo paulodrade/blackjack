@@ -1,0 +1,21 @@
+<!-- Check if the currentFace variable is defined -->
+@if (currentFace) {
+  <img
+    src="/assets/images/{{currentFace}}.png"
+    [alt]="currentFace"
+    height="200"
+  >
+}
+
+<!-- Check if the currentPhrase variable is defined -->
+@if (currentPhrase) {
+  <h1 class="title">{{ currentPhrase }}</h1>
+}
+
+<!-- Render a button to start a new game -->
+<bj-button
+  color="primary"
+  (click)="startNewGame()"
+>
+  Start New Game
+</bj-button>

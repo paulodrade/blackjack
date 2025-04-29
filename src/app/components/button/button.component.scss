@@ -1,0 +1,23 @@
+// Block: Styles for the button component.
+.button {
+
+  // Element: Styles for the label inside the button.
+  &__label {
+    display: flex;
+    align-items: center; // Vertically center the label content.
+    text-transform: uppercase; // Transform text to uppercase.
+  }
+
+  // Element: Styles for spacing between the icon and text inside the button.
+  &__icon + &__text,
+  &__text + &__icon {
+    margin-left: 10px; // Add spacing between the icon and text.
+  }
+
+  // Modifier: Styles for the button when it is disabled.
+  &[disabled] {
+    color: rgba(#FFF, 0.5);
+    background: rgba(#FFF, 0.1);
+  }
+
+}

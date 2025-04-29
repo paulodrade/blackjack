@@ -1,0 +1,26 @@
+<!--
+  Container for the card component.
+  The use of both `min-width`/`max-width` and `min-height`/`max-height` ensures
+  that the card's dimensions are strictly controlled. This approach prevents
+  external elements or styles from inadvertently altering the card's size,
+  maintaining consistent dimensions based on the `width` input property and
+  the calculated height from the `cardHeight` method.
+-->
+<div
+  class="container"
+  [style.min-width]="width + 'px'"
+  [style.max-width]="width + 'px'"
+  [style.min-height]="cardHeight()"
+  [style.max-height]="cardHeight()"
+>
+  <!--
+    Conditional rendering of the card's face.
+    Displays the card image if the `card` object exists and `isFaceUp` is true.
+  -->
+  @if (card && card.isFaceUp) {
+    <div
+      class="card"
+      [style.background-image]="'url(' + card.image +')'"
+    ></div>
+  }
+</div>

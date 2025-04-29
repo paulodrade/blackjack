@@ -1,0 +1,25 @@
+// Host element styles for the start game form component.
+:host {
+  display: block;
+  padding: 40px;
+}
+
+// Element: Material form field within the start game block.
+mat-form-field {
+  width: 100%;
+  --mdc-outlined-text-field-container-shape: 50px; // Sets the shape of the text field container.
+}
+
+// Block: Start game form styles.
+.start-game {
+
+  // Element: Title within the start game block.
+  &__title {
+  }
+
+  // Element: Footer within the start game block.
+  &__footer {
+    display: flex;
+    justify-content: center;
+  }
+}

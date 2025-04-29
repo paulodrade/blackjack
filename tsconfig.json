@@ -1,7 +1,12 @@
-/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "emitDecoratorMetadata": true,
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "resolveJsonModule": true,
+    "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "strict": true,
     "noImplicitOverride": true,
@@ -21,7 +26,24 @@
     "lib": [
       "ES2022",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@bj-components/*": [
+        "src/app/components/*"
+      ],
+      "@bj-services/*": [
+        "src/app/services/*"
+      ],
+      "@bj-models/*": [
+        "src/app/models/*"
+      ],
+      "@bj-features/*": [
+        "src/app/features/*"
+      ],
+      "@bj-helpers/*": [
+        "src/app/helpers/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

@@ -1,0 +1,193 @@
+// Host element styles
+:host {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  width: 100%;
+  background-image: url("/assets/images/bg-board.jpg");
+  background-position: center;
+  align-items: center;
+  justify-content: center;
+
+  // Overlay effect for the background
+  &:before {
+    position: absolute;
+    content: "";
+    display: block;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+    background: radial-gradient(circle, rgba(#fff, 0) 0%, rgba(#000, 0.7) 80%);
+  }
+}
+
+// Block: Represents the main game board
+.board {
+  z-index: 1;
+  background: rgba(#FFF, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding-top: 40px;
+  max-width: 1000px;
+  width: 100%;
+  max-height: 880px;
+  height: 100%;
+  box-shadow: 0 0 50px -20px #000;
+  border-radius: 20px;
+  overflow: hidden;
+
+  // Element: Displays the section's name
+  &__name {
+    color: #FFF;
+    margin-bottom: 20px;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+// Block: Represents the dealer's area
+.dealer {
+  min-width: 280px;
+  max-width: 280px;
+  min-height: 280px;
+  max-height: 280px;
+  border-radius: 300px;
+  background: rgba(#000, 0.4);
+  box-shadow: 0 0 40px rgba(#000, 1);
+
+  // ELEMENT: Container for the dealer's section
+  &__container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    // flex-direction: column;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding-bottom: 40px;
+  }
+}
+
+// Block: Represents the main deck of cards
+.main-deck {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+// Block: Represents the player's section
+.player {
+  background: rgba(#FFF, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  position: relative;
+
+  // Element: Displays the player's name
+  &__name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    padding: 0 30px;
+    height: 60px;
+    border-radius: 50px;
+    font-size: 20px;
+    color: #FFF;
+    background: #020703;
+    border: 2px solid #967106;
+    top: -35px;
+    z-index: 1;
+    box-shadow: 10px 0 30px -10px rgba(#000, 0.7);
+
+    // Subtext for the player's name
+    small {
+      font-size: 14px;
+      opacity: 0.6;
+    }
+  }
+
+  // Element: Displays the player's deck of cards
+  &__deck {
+    display: flex;
+    justify-content: center;
+    padding: 40px 0 20px;
+  }
+
+  // Element: Contains the player's action buttons
+  &__actions {
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #07230c;
+    box-shadow: 0 0 30px -10px #000;
+    width: 100%;
+    position: relative;
+
+    // Adds spacing between action buttons
+    bj-button + bj-button {
+      margin-left: 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 568px) {
+  :host {
+    // Adjusts the background size for small screens
+    background-size: cover;
+  }
+
+  // Modifier: Adjusts the board layout for mobile devices
+  .board {
+    padding-top: 20px;
+    max-height: 100%;
+    border-radius: 0;
+
+    // Adjusts the section name element for mobile
+    &__name {
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    // Adjusts the dealer block dimensions for mobile
+    .dealer {
+      min-width: 200px;
+      max-width: 200px;
+      min-height: 200px;
+      max-height: 200px;
+
+      &__container {
+        flex-direction: column;
+      }
+    }
+
+    .player {
+
+      // Adjusts the player name element for mobile
+      &__name {
+        padding: 0 20px;
+        height: 50px;
+        font-size: 16px;
+      }
+
+      // Adjusts the player actions element for mobile
+      &__actions {
+        padding: 10px 0;
+        --mdc-extended-fab-container-height: 40px;
+      }
+    }
+  }
+}

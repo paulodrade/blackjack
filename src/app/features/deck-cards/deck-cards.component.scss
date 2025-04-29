@@ -1,0 +1,41 @@
+// Block: Container for the deck, centers its content both vertically and horizontally.
+.deck {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  // Element: Styles for the total points display within the deck block.
+  &__total {
+    display: flex;
+    flex-direction: column;
+    color: #FFF;
+    background: rgba(#000, 0.9);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: 100;
+    border-radius: 0 8px 8px 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+  }
+
+  // Element: Styles for individual cards within the deck block.
+  &__card {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    width: 0;
+
+    $total: 52; // Total number of cards in the deck.
+    $index: 0; // Initial z-index for stacking cards.
+
+    @for $i from 1 through $total {
+      // Modifier: Assign a unique z-index to each card based on its position in the deck.
+      &:nth-child(#{$i}) {
+        z-index: $index;
+      }
+
+      $index: $index + 1; // Increment the z-index for the next card.
+    }
+  }
+}

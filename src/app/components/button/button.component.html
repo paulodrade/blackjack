@@ -1,0 +1,37 @@
+<!--
+  Button component with Angular Material Floating Action Button (FAB) styling.
+  The button supports dynamic properties such as type, color, and disabled state.
+-->
+<button
+  [type]="type"
+  [color]="color"
+  class="button"
+  mat-fab
+  extended
+  [disabled]="disabled"
+>
+
+  <!--
+    Wrapper for the button's label, which includes an optional icon and text.
+  -->
+  <div class="button__label">
+
+    <!--
+      Container for the button's icon.
+      Uses content projection to allow a custom 'bj-icon' component.
+    -->
+    <div class="button__icon">
+      <ng-content select="bj-icon"></ng-content>
+    </div>
+
+    <!--
+      Container for the button's text.
+      Uses content projection to allow dynamic text content.
+    -->
+    <div class="button__text">
+      <ng-content></ng-content>
+    </div>
+
+  </div>
+
+</button>

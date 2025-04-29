@@ -1,0 +1,13 @@
+<!--
+  Angular Material Icon component.
+  Dynamically applies a class based on the `symbol` input property.
+  If `symbol` is true, the 'material-symbols-outlined' class is applied.
+  Otherwise, the 'material-icons-outlined' class is used.
+-->
+<mat-icon [class]="symbol ? 'material-symbols-outlined' : 'material-icons-outlined'">
+  <!--
+    Content projected into the icon component.
+    This allows for dynamic icon names or symbols to be passed in.
+  -->
+  <ng-content></ng-content>
+</mat-icon>
